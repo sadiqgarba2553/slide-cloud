@@ -1,0 +1,16 @@
+[
+  {
+    "file": "releases/windows/slide-cloud-0.1.0-win-x64.zip",
+    "bytes": 4047283,
+    "sha256": "4f19fe29a1f22864ef791d2d2f5cd1d6e3fcedb5b25a8b00274f5245c7a14865",
+    "build": "unsigned Windows x64 release-mode alpha",
+    "installation_tested": false
+  },
+  {
+    "file": "releases/windows/Slide-Cloud-0.1.0-x64-setup.exe",
+    "bytes": 3181030,
+    "sha256": "6f2f8d6e112fb5258db911f0ea9da53aaef67848f8cd3d20ef4954a79ba77f5c",
+    "build": "unsigned Windows x64 release-mode alpha",
+    "installation_tested": false
+  }
+]

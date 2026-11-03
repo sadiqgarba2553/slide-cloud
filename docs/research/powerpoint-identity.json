@@ -1,0 +1,10 @@
+{
+  "path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE",
+  "bytes": 1917272,
+  "fileVersion": "16.0.20527.20112",
+  "productVersion": "16.0.20527.20112",
+  "productName": "Microsoft Office",
+  "sha256": "4384fbd890bc21914b22ab310ccf4d68a224d42e757ae0b472078c2b26451d0f",
+  "method": "Windows FileVersionInfo and SHA-256, separate from REA PE resource Evidence",
+  "runtimeObserved": false
+}

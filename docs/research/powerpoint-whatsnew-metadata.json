@@ -1,0 +1,11 @@
+{
+  "path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\1033\\PPT_WHATSNEW.XML",
+  "bytes": 5118,
+  "sha256": "17b2c82b33fc9dd13760051281e8c3d408898224e5ce9da04183403790cd2fc3",
+  "product": "PowerPoint",
+  "platform": "Desktop",
+  "locale": "en-US",
+  "declaredRelease": "1706 JUNE",
+  "items": 7,
+  "interpretation": "Historical packaged feature-description metadata; does not establish which features are enabled, executed or current in this installed build."
+}

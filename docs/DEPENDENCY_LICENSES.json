@@ -1,0 +1,208 @@
+[
+  {
+    "name": "@tauri-apps/api",
+    "version": "2.12.4",
+    "license": "Apache-2.0 OR MIT",
+    "notices": [
+      "LICENSE-APACHE-2.0",
+      "LICENSE-MIT",
+      "LICENSE.spdx"
+    ]
+  },
+  {
+    "name": "@tauri-apps/plugin-dialog",
+    "version": "2.8.4",
+    "license": "MIT OR Apache-2.0",
+    "notices": [
+      "LICENSE.spdx"
+    ]
+  },
+  {
+    "name": "@types/node",
+    "version": "22.20.5",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "core-util-is",
+    "version": "1.0.3",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "https",
+    "version": "1.0.0",
+    "license": "ISC",
+    "notices": []
+  },
+  {
+    "name": "image-size",
+    "version": "2.0.4",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "immediate",
+    "version": "3.0.6",
+    "license": "MIT",
+    "notices": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "name": "inherits",
+    "version": "2.0.4",
+    "license": "ISC",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "isarray",
+    "version": "1.0.0",
+    "license": "MIT",
+    "notices": []
+  },
+  {
+    "name": "js-tokens",
+    "version": "4.0.0",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "jszip",
+    "version": "3.10.1",
+    "license": "(MIT OR GPL-3.0-or-later)",
+    "notices": [
+      "LICENSE.markdown"
+    ]
+  },
+  {
+    "name": "lie",
+    "version": "3.3.0",
+    "license": "MIT",
+    "notices": [
+      "license.md"
+    ]
+  },
+  {
+    "name": "loose-envify",
+    "version": "1.4.0",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "lucide-react",
+    "version": "0.460.0",
+    "license": "ISC",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pako",
+    "version": "1.0.11",
+    "license": "(MIT AND Zlib)",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pptxgenjs",
+    "version": "4.0.0",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "process-nextick-args",
+    "version": "2.0.1",
+    "license": "MIT",
+    "notices": [
+      "license.md"
+    ]
+  },
+  {
+    "name": "react",
+    "version": "18.3.1",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "react-dom",
+    "version": "18.3.1",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "scheduler",
+    "version": "0.23.2",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "setimmediate",
+    "version": "1.0.5",
+    "license": "MIT",
+    "notices": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "undici-types",
+    "version": "6.21.0",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "util-deprecate",
+    "version": "1.0.2",
+    "license": "MIT",
+    "notices": [
+      "LICENSE"
+    ]
+  }
+]

@@ -1,0 +1,599 @@
+{
+  "source_evidence": "ev_964809e3b20b899abd7fc23bd16b13ab257f48aa0381a4610044f2b7fab1741a",
+  "source_artifact": {
+    "path": "C:/Program Files/Microsoft Office/root/Office16/1033/PPINTL.DLL",
+    "sha256": "ac4282610ff7f2292b23cfdbef9162483b89282c77f162ac86e8d3c6c29544bd",
+    "bytes": 272640
+  },
+  "method": "Case-insensitive literal UTF-8 and aligned UTF-16LE byte decoding within each resource payload range; icon/cursor resources excluded. No structured dialog/control or runtime decoding.",
+  "matches": [
+    {
+      "resource_index": 56,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4382
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 33436,
+        "bytes": 666
+      },
+      "keywords": [
+        "slide",
+        "present"
+      ]
+    },
+    {
+      "resource_index": 60,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4522
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 35784,
+        "bytes": 236
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 61,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4523
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 36020,
+        "bytes": 252
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 64,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4526
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 37564,
+        "bytes": 546
+      },
+      "keywords": [
+        "shape",
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 65,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4527
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 38112,
+        "bytes": 1820
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 66,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4528
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 39932,
+        "bytes": 2304
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 67,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4530
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 42236,
+        "bytes": 188
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 68,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4531
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 42424,
+        "bytes": 260
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 69,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4532
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 42684,
+        "bytes": 1164
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 70,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4533
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 43848,
+        "bytes": 1936
+      },
+      "keywords": [
+        "slide",
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 71,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4534
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 45784,
+        "bytes": 1184
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 72,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4535
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 46968,
+        "bytes": 1308
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 73,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4536
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 48276,
+        "bytes": 1296
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 75,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4540
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 49856,
+        "bytes": 1940
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 76,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4542
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 51796,
+        "bytes": 1808
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 77,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4543
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 53604,
+        "bytes": 1808
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 78,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4544
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 55412,
+        "bytes": 1808
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 79,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4545
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 57220,
+        "bytes": 1920
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 80,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4546
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 59140,
+        "bytes": 1916
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 81,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4547
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 61056,
+        "bytes": 1928
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 82,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4548
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 62984,
+        "bytes": 1036
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 83,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4549
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 64020,
+        "bytes": 1920
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 84,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4550
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 65940,
+        "bytes": 1192
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 85,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4551
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 67132,
+        "bytes": 1916
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 86,
+      "type": {
+        "kind": "id",
+        "id": 5
+      },
+      "name": {
+        "kind": "id",
+        "id": 4552
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 69048,
+        "bytes": 1920
+      },
+      "keywords": [
+        "animation"
+      ]
+    },
+    {
+      "resource_index": 170,
+      "type": {
+        "kind": "id",
+        "id": 234
+      },
+      "name": {
+        "kind": "id",
+        "id": 1
+      },
+      "language": {
+        "kind": "id",
+        "id": 1033
+      },
+      "payload_range": {
+        "offset": 82504,
+        "bytes": 168104
+      },
+      "keywords": [
+        "slide",
+        "present",
+        "notes",
+        "layout",
+        "shape",
+        "picture",
+        "insert",
+        "save",
+        "print",
+        "template"
+      ]
+    }
+  ],
+  "limitations": [
+    "Occurrences are string candidates, not proof of a feature, handler, enabled state, or actual UI behavior.",
+    "No complete PowerPoint application resource inventory is claimed; only this explicit DLL was examined."
+  ]
+}
