@@ -1,3 +1,5 @@
+> Codex review (4 November 2026): Read [CODEX_VERIFICATION.md](CODEX_VERIFICATION.md) for tested behavior, corrected claims and remaining limits. Earlier source-only claims are not proof of feature parity.
+
 # Slide Cloud alpha boundaries
 
 Slide Cloud is an independent, local-first presentation editor. Its native format preserves its supported editable slide content. It is not full Microsoft PowerPoint compatibility.

@@ -1229,7 +1229,7 @@ export default function App() {
                             max={20}
                             value={element.tableRows || 3}
                             onChange={e => {
-                              const newRows = Math.max(1, Number(e.target.value) || 1);
+                              const newRows = cap(Math.floor(Number(e.target.value) || 1), 1, 20);
                               const cur = element.tableData || [];
                               const data = Array.from({ length: newRows }, (_, r) =>
                                 Array.from({ length: element.tableCols || 3 }, (_, c) => cur[r]?.[c] || '')
@@ -1246,7 +1246,7 @@ export default function App() {
                             max={10}
                             value={element.tableCols || 3}
                             onChange={e => {
-                              const newCols = Math.max(1, Number(e.target.value) || 1);
+                              const newCols = cap(Math.floor(Number(e.target.value) || 1), 1, 10);
                               const cur = element.tableData || [];
                               const data = Array.from({ length: element.tableRows || 3 }, (_, r) =>
                                 Array.from({ length: newCols }, (_, c) => cur[r]?.[c] || '')
@@ -1276,10 +1276,22 @@ export default function App() {
                           >
                             <option value="bar">Bar Chart</option>
                             <option value="line">Line Chart</option>
+                            <option value="pie">Pie Chart</option>
                           </select>
                         </label>
                       </>
                     )}
+                    {element.type === 'table' && <fieldset style={{ gridColumn: '1 / -1', minWidth: 0 }}><legend>Table cells</legend>
+                      {(element.tableData || []).map((row, r) => <div key={r} style={{ display: 'flex', gap: 4 }}>{row.map((value, c) => <input key={c} aria-label={`Table row ${r + 1} column ${c + 1}`} style={{ width: `${100 / row.length}%`, minWidth: 0 }} value={value} onChange={event => { const data = structuredClone(element.tableData!); data[r][c] = event.target.value; patch({ tableData: data }); }} />)}</div>)}
+                    </fieldset>}
+                    {element.type === 'chart' && <fieldset style={{ gridColumn: '1 / -1', minWidth: 0 }}><legend>Chart data</legend>
+                      {(element.chartData || []).map((point, i) => <div key={i} style={{ display: 'flex', gap: 4 }}>
+                        <input aria-label={`Chart label ${i + 1}`} style={{ width: '50%' }} value={point.label} onChange={event => patch({ chartData: element.chartData!.map((p, j) => j === i ? { ...p, label: event.target.value } : p) })} />
+                        <input aria-label={`Chart value ${i + 1}`} style={{ width: '40%' }} type="number" value={point.value} onChange={event => { const value = Number(event.target.value); if (Number.isFinite(value)) patch({ chartData: element.chartData!.map((p, j) => j === i ? { ...p, value } : p) }); }} />
+                        <button aria-label={`Remove chart point ${i + 1}`} onClick={() => patch({ chartData: element.chartData!.filter((_, j) => j !== i) })}>×</button>
+                      </div>)}
+                      <button className="secondary" disabled={(element.chartData?.length || 0) >= 100} onClick={() => patch({ chartData: [...(element.chartData || []), { label: 'Item', value: 0 }] })}>Add data point</button>
+                    </fieldset>}
                   </div>
 
                   <div className="inspector-section">
@@ -1767,7 +1779,7 @@ export default function App() {
             <Maximize2 size={16} />Fullscreen
           </button>
           <div className="show-slide">
-            <SlideView slide={slide} label={`Audience slide ${index + 1}`} />
+            <SlideView slide={slide} animate label={`Audience slide ${index + 1}`} />
           </div>
           <div className="show-controls">
             <button aria-label="Previous slide" disabled={index === 0} onClick={() => setIndex(index - 1)}>

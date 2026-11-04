@@ -1,17 +1,17 @@
 {
   "appId": "slide-cloud",
   "repository": "sadiqgarba2553/slide-cloud",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "sourceName": "Slide-Cloud",
-  "title": "Slide Cloud 0.1.0 - Windows alpha",
-  "notes": "First Windows alpha: original orange squircle presentation logo, local slide library and autosave, editable slide templates, text, shapes and images, slide organization, speaker notes, slideshow, native backups and basic PPTX exchange. Joins Doc Cloud and Sheet Cloud in BlueCloud Launcher. Office compatibility is limited; animations, transitions, embedded media and hosted collaboration are not included.",
+  "title": "Slide Cloud 0.2.0 — Office expansion alpha",
+  "notes": "Editable tables and chart data, more vector shapes, slideshow transitions and entrance effects with reduced-motion support, and a same-window presenter console. Improved table PPTX exchange and chart-family export. Existing decks and orange squircle branding are preserved. Multi-monitor presenting and full PowerPoint fidelity are not included.",
   "localAssets": [
-    "releases/windows/slide-cloud-0.1.0-win-x64.zip",
-    "releases/windows/Slide-Cloud-0.1.0-x64-setup.exe"
+    "releases/windows/slide-cloud-0.2.0-win-x64.zip",
+    "releases/windows/Slide-Cloud-0.2.0-x64-setup.exe"
   ],
-  "unpackedDirectory": "releases/windows/managed",
+  "unpackedDirectory": "releases/windows/managed-0.2.0",
   "package": {
-    "name": "slide-cloud-0.1.0-win-x64.zip",
+    "name": "slide-cloud-0.2.0-win-x64.zip",
     "type": "zip",
     "minimumLauncher": "0.7.2",
     "executable": "slide-cloud.exe"

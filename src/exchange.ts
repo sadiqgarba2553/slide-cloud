@@ -98,7 +98,7 @@ export async function exportPptx(deck: Deck): Promise<Uint8Array> {
             values: e.chartData.map(d => d.value),
           },
         ];
-        slide.addChart(pptx.ChartType.bar, chartData, {
+        slide.addChart(e.chartType === 'line' ? pptx.ChartType.line : e.chartType === 'pie' ? pptx.ChartType.pie : pptx.ChartType.bar, chartData, {
           ...position,
           showTitle: true,
           title: e.chartTitle || 'Chart',

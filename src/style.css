@@ -14,3 +14,21 @@ html.dark{color-scheme:dark;--bg:#21201f;--panel:#292725;--side:#252321;--line:#
 .stage-wrap{container-type:size}.stage-shell{width:min(100%,960px,calc(100cqh * 16 / 9))}
 .template-preview.blank svg{width:28px;height:28px;aspect-ratio:auto;box-shadow:none;transform:none}.slideshow{margin:0;padding:0;border:0;max-width:none;max-height:none;width:100vw;height:100dvh}.slideshow::backdrop{background:#111}.import-notes{font-size:11px;color:var(--muted);margin-bottom:16px}.import-notes summary{cursor:pointer;color:var(--accent)}.import-notes ul{padding-left:18px}
 @media print{#root>.print-deck{display:block!important}}
+
+/* Presentation effects are opt-in and never animate the editor or print output. */
+.slide-playback[data-transition=fade]{animation:slide-fade var(--slide-duration) ease-out both}
+.slide-playback[data-transition=slide-left]{animation:slide-left var(--slide-duration) cubic-bezier(.2,0,0,1) both}
+.slide-playback[data-transition=slide-right]{animation:slide-right var(--slide-duration) cubic-bezier(.2,0,0,1) both}
+.slide-playback[data-transition=zoom]{animation:slide-zoom var(--slide-duration) ease-out both}
+.slide-playback [data-effect]:not([data-effect=none]){animation-duration:var(--effect-duration);animation-delay:var(--effect-delay);animation-timing-function:cubic-bezier(.2,0,0,1);animation-fill-mode:both;transform-box:fill-box;transform-origin:center}
+.slide-playback [data-effect=fade-in]{animation-name:slide-fade}
+.slide-playback [data-effect=fly-in-bottom]{animation-name:element-up}
+.slide-playback [data-effect=fly-in-left]{animation-name:element-right}
+.slide-playback [data-effect=zoom-in]{animation-name:slide-zoom}
+@keyframes slide-fade{from{opacity:0}to{opacity:1}}
+@keyframes slide-left{from{opacity:0;transform:translateX(12%)}to{opacity:1;transform:translateX(0)}}
+@keyframes slide-right{from{opacity:0;transform:translateX(-12%)}to{opacity:1;transform:translateX(0)}}
+@keyframes slide-zoom{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes element-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes element-right{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.slide-playback,.slide-playback [data-effect]{animation:none!important}}

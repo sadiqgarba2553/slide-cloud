@@ -91,6 +91,17 @@ describe('bounded PowerPoint exchange', () => {
 
 
 describe('expanded slide elements, tables and charts', () => {
+  it('exports editable tables and the selected line chart family into PPTX', async () => {
+    const deck = newDeck('Exchange regression');
+    const table = newElement('table'); table.tableRows = 2; table.tableCols = 2; table.tableData = [['Name','Value'],['Sample','12']];
+    const chart = newElement('chart'); chart.chartType = 'line'; chart.chartData = [{label:'One',value:-3},{label:'Two',value:12}];
+    deck.slides[0].elements.push(table, chart);
+    const bytes = await exportPptx(deck), zip = await JSZip.loadAsync(bytes);
+    expect(await zip.file('ppt/slides/slide1.xml')!.async('string')).toContain('<a:tbl>');
+    expect(await zip.file('ppt/charts/chart1.xml')!.async('string')).toContain('c:lineChart');
+    const imported = await importPptx(bytes, 'roundtrip.pptx');
+    expect(imported.slides[0].elements.find(e => e.type === 'table')?.tableData).toEqual(table.tableData);
+  }, 30000);
   it('supports tables with row/col structure and preserves data through serialization', () => {
     const deck = newDeck('Table Deck');
     const tableEl = newElement('table');

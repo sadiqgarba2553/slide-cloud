@@ -1,4 +1,5 @@
 import type { Slide, SlideElement } from './model';
+import type { CSSProperties } from 'react';
 import { WIDTH, HEIGHT } from './model';
 
 export function ElementView({ element: e }: { element: SlideElement }) {
@@ -117,8 +118,12 @@ export function ElementView({ element: e }: { element: SlideElement }) {
           { label: 'Q4', value: 70 },
         ];
         const maxVal = Math.max(1, ...data.map(d => Math.abs(d.value)));
-        const chartH = e.h - 50;
-        const chartW = e.w - 40;
+        const minVal = Math.min(0, ...data.map(d => d.value));
+        const highVal = Math.max(1, ...data.map(d => d.value));
+        const chartH = Math.max(1, e.h - 70);
+        const chartW = Math.max(1, e.w - 55);
+        const yFor = (value: number) => chartH - (value - minVal) / (highVal - minVal) * (chartH - 20);
+        const zeroY = yFor(0);
         const barColors = ['#CF551D', '#E27E3F', '#F4A66B', '#D06E35', '#B84D19'];
 
         return (
@@ -128,7 +133,18 @@ export function ElementView({ element: e }: { element: SlideElement }) {
               {e.chartTitle || 'Chart'}
             </text>
 
-            {e.chartType === 'line' ? (
+            {e.chartType === 'pie' ? (() => {
+              const total = data.reduce((sum, p) => sum + Math.max(0, p.value), 0);
+              let angle = -Math.PI / 2;
+              const radius = Math.max(1, Math.min(chartW, chartH) / 2 - 5), cx = e.w / 2, cy = 40 + chartH / 2;
+              return data.map((p, i) => {
+                const fraction = total ? Math.max(0, p.value) / total : 0;
+                const end = angle + fraction * Math.PI * 2;
+                const path = `M ${cx} ${cy} L ${cx + radius * Math.cos(angle)} ${cy + radius * Math.sin(angle)} A ${radius} ${radius} 0 ${fraction > .5 ? 1 : 0} 1 ${cx + radius * Math.cos(end)} ${cy + radius * Math.sin(end)} Z`;
+                angle = end;
+                return fraction >= 1 ? <circle key={i} cx={cx} cy={cy} r={radius} fill={barColors[i % barColors.length]}><title>{p.label}: {p.value}</title></circle> : <path key={i} d={path} fill={barColors[i % barColors.length]}><title>{p.label}: {p.value}</title></path>;
+              });
+            })() : e.chartType === 'line' ? (
               <g transform="translate(30, 40)">
                 <line x1={0} y1={chartH} x2={chartW} y2={chartH} stroke="#CCD0CC" strokeWidth={1.5} />
                 <polyline
@@ -138,14 +154,14 @@ export function ElementView({ element: e }: { element: SlideElement }) {
                   points={data
                     .map((d, i) => {
                       const px = (i / Math.max(1, data.length - 1)) * (chartW - 20) + 10;
-                      const py = chartH - (d.value / maxVal) * (chartH - 20);
+                      const py = yFor(d.value);
                       return `${px},${py}`;
                     })
                     .join(' ')}
                 />
                 {data.map((d, i) => {
                   const px = (i / Math.max(1, data.length - 1)) * (chartW - 20) + 10;
-                  const py = chartH - (d.value / maxVal) * (chartH - 20);
+                  const py = yFor(d.value);
                   return (
                     <g key={i}>
                       <circle cx={px} cy={py} r={4} fill="#CF551D" />
@@ -160,10 +176,11 @@ export function ElementView({ element: e }: { element: SlideElement }) {
               <g transform="translate(25, 35)">
                 <line x1={10} y1={chartH} x2={chartW + 10} y2={chartH} stroke="#CCD0CC" strokeWidth={1.5} />
                 {data.map((d, i) => {
-                  const barW = Math.max(12, (chartW - 20) / data.length - 12);
-                  const barH = (d.value / maxVal) * (chartH - 25);
-                  const bx = 16 + i * (barW + 12);
-                  const by = chartH - barH;
+                  const band = (chartW - 20) / Math.max(1, data.length);
+                  const barW = Math.max(.1, band * .7);
+                  const barH = Math.abs(yFor(d.value) - zeroY);
+                  const bx = 16 + i * band;
+                  const by = Math.min(zeroY, yFor(d.value));
                   return (
                     <g key={i}>
                       <rect x={bx} y={by} width={barW} height={barH} rx={3} fill={barColors[i % barColors.length]} />
@@ -189,16 +206,18 @@ export function SlideView({
   slide,
   className = '',
   label = '',
+  animate = false,
 }: {
   slide: Slide;
   className?: string;
   label?: string;
+  animate?: boolean;
 }) {
   return (
-    <svg className={className} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="img" aria-label={label || 'Slide preview'}>
+    <svg key={slide.id} className={`${className} ${animate ? 'slide-playback' : ''}`} data-transition={animate ? slide.transition?.type : undefined} style={animate ? { '--slide-duration': `${slide.transition?.duration || 0.5}s` } as CSSProperties : undefined} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="img" aria-label={label || 'Slide preview'}>
       <rect width={WIDTH} height={HEIGHT} fill={slide.background} />
       {slide.elements.map(e => (
-        <ElementView key={e.id} element={e} />
+        <g key={e.id} data-effect={animate ? e.animation?.type : undefined} style={animate ? { '--effect-duration': `${e.animation?.duration || 0.5}s`, '--effect-delay': `${(slide.transition?.type && slide.transition.type !== 'none' ? slide.transition.duration : 0) + Math.min(100, e.animation?.order || 0) * 0.15}s` } as CSSProperties : undefined}><ElementView element={e} /></g>
       ))}
     </svg>
   );

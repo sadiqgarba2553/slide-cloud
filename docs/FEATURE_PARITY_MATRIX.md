@@ -1,3 +1,5 @@
+> Codex review (4 November 2026): Read [CODEX_VERIFICATION.md](CODEX_VERIFICATION.md) for tested behavior, corrected claims and remaining limits. Earlier source-only claims are not proof of feature parity.
+
 # Slide Cloud Feature Parity Matrix
 
 Research targets: Microsoft PowerPoint (Office 365/Desktop 2026), Google Slides (2026), Apple Keynote (macOS 15), LibreOffice Impress (24.8+).

@@ -1,6 +1,6 @@
 [package]
 name = "slide-cloud"
-version = "0.1.0"
+version = "0.2.0"
 description = "Slide Cloud local-first presentation editor"
 authors = ["BlueCloud AI Technologies"]
 edition = "2021"

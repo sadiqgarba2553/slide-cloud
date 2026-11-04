@@ -254,10 +254,10 @@ function parseElement(value: unknown): SlideElement {
 
   // Table support
   if (result.type === 'table') {
-    result.tableRows = typeof e.tableRows === 'number' ? Math.max(1, Math.min(30, e.tableRows)) : 3;
-    result.tableCols = typeof e.tableCols === 'number' ? Math.max(1, Math.min(20, e.tableCols)) : 3;
+    result.tableRows = typeof e.tableRows === 'number' && Number.isFinite(e.tableRows) ? Math.max(1, Math.min(30, Math.floor(e.tableRows))) : 3;
+    result.tableCols = typeof e.tableCols === 'number' && Number.isFinite(e.tableCols) ? Math.max(1, Math.min(20, Math.floor(e.tableCols))) : 3;
     result.tableData = Array.isArray(e.tableData)
-      ? (e.tableData as string[][]).map(row => Array.isArray(row) ? row.map(c => String(c).slice(0, 1000)) : [])
+      ? (e.tableData as string[][]).slice(0, result.tableRows).map(row => Array.isArray(row) ? row.slice(0, result.tableCols).map(c => String(c).slice(0, 1000)) : [])
       : Array.from({ length: result.tableRows }, () => Array.from({ length: result.tableCols! }, () => ''));
   }
 
@@ -268,9 +268,9 @@ function parseElement(value: unknown): SlideElement {
       : 'bar';
     result.chartTitle = typeof e.chartTitle === 'string' ? e.chartTitle.slice(0, 200) : 'Chart';
     result.chartData = Array.isArray(e.chartData)
-      ? (e.chartData as ChartDataPoint[]).map(pt => ({
-          label: String(pt.label || '').slice(0, 100),
-          value: Number(pt.value) || 0,
+      ? (e.chartData as ChartDataPoint[]).slice(0, 1000).map(pt => ({
+          label: String(pt?.label || '').slice(0, 100),
+          value: number(pt?.value, -1e15, 1e15, 'chart value'),
         }))
       : [
           { label: 'Q1', value: 35 },
