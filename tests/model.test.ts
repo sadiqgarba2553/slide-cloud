@@ -88,3 +88,67 @@ describe('bounded PowerPoint exchange', () => {
     await expect(importPptx(bytes, 'Bounded.pptx')).rejects.toThrow('byte limit');
   });
 });
+
+
+describe('expanded slide elements, tables and charts', () => {
+  it('supports tables with row/col structure and preserves data through serialization', () => {
+    const deck = newDeck('Table Deck');
+    const tableEl = newElement('table');
+    tableEl.tableData = [
+      ['Col 1', 'Col 2'],
+      ['100', '200'],
+    ];
+    tableEl.tableRows = 2;
+    tableEl.tableCols = 2;
+    deck.slides[0].elements.push(tableEl);
+
+    const serialized = serializeNative(deck);
+    const parsed = parseNative(serialized);
+    const parsedTable = parsed.slides[0].elements.find(e => e.type === 'table');
+    expect(parsedTable).toBeDefined();
+    expect(parsedTable?.tableData?.[0][0]).toBe('Col 1');
+    expect(parsedTable?.tableRows).toBe(2);
+  });
+
+  it('supports charts with data points and preserves series', () => {
+    const deck = newDeck('Chart Deck');
+    const chartEl = newElement('chart');
+    chartEl.chartType = 'bar';
+    chartEl.chartTitle = 'Revenue';
+    chartEl.chartData = [
+      { label: 'Jan', value: 120 },
+      { label: 'Feb', value: 250 },
+    ];
+    deck.slides[0].elements.push(chartEl);
+
+    const parsed = parseNative(serializeNative(deck));
+    const parsedChart = parsed.slides[0].elements.find(e => e.type === 'chart');
+    expect(parsedChart).toBeDefined();
+    expect(parsedChart?.chartTitle).toBe('Revenue');
+    expect(parsedChart?.chartData?.length).toBe(2);
+    expect(parsedChart?.chartData?.[1].value).toBe(250);
+  });
+
+  it('supports extended shapes: triangle, star, diamond', () => {
+    const deck = newDeck('Shapes Deck');
+    deck.slides[0].elements.push(newElement('triangle'), newElement('star'), newElement('diamond'));
+
+    const parsed = parseNative(serializeNative(deck));
+    expect(parsed.slides[0].elements.map(e => e.type)).toContain('triangle');
+    expect(parsed.slides[0].elements.map(e => e.type)).toContain('star');
+    expect(parsed.slides[0].elements.map(e => e.type)).toContain('diamond');
+  });
+
+  it('supports transitions and animations on slides and elements', () => {
+    const deck = newDeck('Animated Deck');
+    deck.slides[0].transition = { type: 'fade', duration: 1.2 };
+    const textEl = newElement('text');
+    textEl.animation = { type: 'fade-in', duration: 0.8, order: 1 };
+    deck.slides[0].elements.push(textEl);
+
+    const parsed = parseNative(serializeNative(deck));
+    expect(parsed.slides[0].transition?.type).toBe('fade');
+    expect(parsed.slides[0].transition?.duration).toBe(1.2);
+    expect(parsed.slides[0].elements[0].animation?.type).toBe('fade-in');
+  });
+});
